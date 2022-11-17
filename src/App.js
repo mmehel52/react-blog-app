@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import AppRouter from "./app-router/AppRouter";
+import "./App.css";
+import Navbar from "./components/navbar/Navbar";
+import { ThemeProvider } from "styled-components";
+import AuthContextProvider from "./contexts/AuthContext";
+import { ToastContainer } from "react-toastify";
+const style = {
+  colors: {
+    header: "#747A8C",
+    body: "#0C1940",
+    text: "#00010D",
+  },
+  margins: {},
+  responsive: "724px",
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthContextProvider>
+        <ThemeProvider theme={style}>
+          <Navbar />
+          <AppRouter />
+          <ToastContainer />
+        </ThemeProvider>
+      </AuthContextProvider>
     </div>
   );
 }
