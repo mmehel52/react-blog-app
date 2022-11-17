@@ -18,7 +18,7 @@ import {
 import NewStyled, { Btn, Input, Input2, Signin } from "./NewStyled";
 import Pic from "../../assets/mm.png";
 import { AuthContext } from "../../contexts/AuthContext";
-
+const initialState = {};
 const NewBlog = () => {
   const [blog, setBlog] = useState({
     title: "",
@@ -47,8 +47,8 @@ const NewBlog = () => {
     console.log(db);
     const userRef = ref(db, "blog");
     set(push(userRef), blog);
-    toastSuccessNotify("Blog was added successfully!");
     setBlog({ title: "", url: "", content: "" });
+    toastSuccessNotify("Blog was added successfully!");
   };
   return (
     <NewStyled>
@@ -62,7 +62,7 @@ const NewBlog = () => {
             placeholder="Title*"
             required
             onChange={handleChange}
-            // value={blog.title}
+            value={blog.title}
           />
           <br />
           <Input
@@ -71,7 +71,7 @@ const NewBlog = () => {
             placeholder="image URL*"
             required
             onChange={handleChange}
-            // value={blog.url}
+            value={blog.url}
           />
           <br />
           <Input2
@@ -80,7 +80,7 @@ const NewBlog = () => {
             placeholder="Content*"
             required
             onChange={handleChange}
-            // value={blog.content}
+            value={blog.content}
           />
           <br />
           <Btn>Submit</Btn>

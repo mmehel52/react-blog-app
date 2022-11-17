@@ -14,26 +14,23 @@ const NewStyled = styled.div`
 export const Signin = styled.div`
   padding: 10px;
   margin-top: 150px;
-  /* background-color: white; */
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 25rem;
-  /* opacity: 0.8;
-  border-radius: 5px;
-  box-shadow: 18px 25px 42px 1px black; */
 `;
 export const Input = styled.input`
   width: 20rem;
   margin-bottom: 0.9rem;
   height: 2rem;
 `;
-export const Input2 = styled(Input)`
+export const Input2 = styled.textarea`
   width: 20rem;
   margin-bottom: 2rem;
   height: 12rem;
+  resize: none;
 `;
 export const Btn = styled.button`
   width: 20rem;

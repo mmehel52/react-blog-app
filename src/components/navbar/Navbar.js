@@ -5,6 +5,7 @@ import NavStyled, {
   NavImg,
   MenuDiv,
   RightDiv,
+  NavbarLinkp,
 } from "./NavStyled.js";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +37,7 @@ function Nav() {
             <>
               <NavbarLink to="/profile">Profile</NavbarLink>
               <NavbarLink to="/newblog">New</NavbarLink>
-              <NavbarLink onClick={() => logOut()}>Logout</NavbarLink>
+              <NavbarLinkp onClick={() => logOut(navigate)}>Logout</NavbarLinkp>
             </>
           )}
           {!currentUser && (

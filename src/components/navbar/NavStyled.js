@@ -17,6 +17,15 @@ export const NavbarLink = styled(Link)`
     font-weight: bold;
   }
 `;
+export const NavbarLinkp = styled.p`
+  color: ${({ theme }) => theme.colors.body};
+  font-size: 15px;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.body};
+    font-weight: bold;
+  }
+`;
 
 export const NavImg = styled.img`
   width: 3rem;
