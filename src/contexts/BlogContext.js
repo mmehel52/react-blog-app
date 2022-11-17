@@ -1,8 +1,16 @@
-import React from "react";
-import firebase from "../helpers/firebase";
+import React, { createContext, useEffect, useState } from "react";
+import { userObserver } from "../helpers/firebase";
+export const BlogContext = createContext();
 
-const BlogContext = () => {
-  return <div>BlogContext</div>;
+const BlogContextProvider = ({ children }) => {
+  const [currentBlog, setCurrentBlog] = useState([]);
+  useEffect(() => {
+    userObserver(setCurrentBlog);
+  }, []);
+  return (
+    <BlogContext.Provider value={{ currentBlog }}>
+      {children}
+    </BlogContext.Provider>
+  );
 };
-
-export default BlogContext;
+export default BlogContextProvider;

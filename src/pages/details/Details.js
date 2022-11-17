@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import DetailStyled, { Blogdiv, Bottom, Image, Index } from "./DetailStyled";
 import { BsPersonCircle } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
-const { state: detail } = useLocation();
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { BlogContext } from "../../contexts/BlogContext";
+
 const Details = () => {
+  const { currentBlog } = useContext(BlogContext);
+  const navigate = useNavigate();
+  console.log(currentBlog);
   return (
     <div>
-      <h1>---DASHBOARD---</h1>
-      <Blogdiv
+      <h1>---DETAİLS---</h1>
+      {/* <Blogdiv
         key={blog.id}
         onClick={() => navigate("details/" + blog.id, { state: blog })}
       >
@@ -28,7 +33,7 @@ const Details = () => {
             <BiComment style={{ marginLeft: "10px", marginRight: "10px" }} />0
           </p>
         </Bottom>
-      </Blogdiv>
+      </Blogdiv> */}
     </div>
   );
 };

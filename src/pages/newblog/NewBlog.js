@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import firebase from "../../helpers/firebase";
 import {
   getDatabase,
@@ -17,16 +17,28 @@ import {
 } from "../../helpers/toastNotify";
 import NewStyled, { Btn, Input, Input2, Signin } from "./NewStyled";
 import Pic from "../../assets/mm.png";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const NewBlog = () => {
   const [blog, setBlog] = useState({
     title: "",
     url: "",
     content: "",
+    date: "",
+    email: "",
   });
-
+  const { currentUser } = useContext(AuthContext);
   const handleChange = (e) => {
-    setBlog({ ...blog, [e.target.name]: e.target.value });
+    setBlog({
+      ...blog,
+      [e.target.name]: e.target.value,
+      email: `${currentUser.email}`,
+      date: `${new Date().toLocaleDateString("en-us", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })}`,
+    });
   };
 
   const handleSubmit = (e) => {

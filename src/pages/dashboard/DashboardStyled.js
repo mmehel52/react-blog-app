@@ -33,6 +33,7 @@ export const Image = styled.img`
   top: 0;
 `;
 export const Index = styled.div`
+  text-align: center;
   position: absolute;
   left: 0;
   top: 10rem;

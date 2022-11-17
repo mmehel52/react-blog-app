@@ -33,13 +33,13 @@ const Dashboard = () => {
       const blogs = snapshot.val();
       const blogArray = [];
       for (let id in blogs) {
-        console.log(blogs[id].content.slice(0, 100));
+        // console.log(blogs[id]);
         blogArray.push({ id, ...blogs[id] });
       }
       setBlogList(blogArray);
     });
   }, []);
-  console.log(blogList);
+  // console.log(blogList);
   return (
     <div>
       <h1 style={{ textAlign: "center" }}>---DASHBOARD---</h1>
@@ -52,12 +52,13 @@ const Dashboard = () => {
             <Image src={blog.url} alt="" />
             <Index>
               <h3>{blog.title.toUpperCase()}</h3>
+              <p>{blog.date}</p>
               <p>{blog.content.slice(0, 100)}...</p>
             </Index>
             <Bottom>
               <p>
                 <BsPersonCircle style={{ marginRight: "10px" }} />
-                {currentUser?.email}
+                {blog.email}
               </p>
               <p>
                 <AiFillHeart style={{ marginRight: "10px" }} />

@@ -16,6 +16,7 @@ function Nav() {
   const { currentUser } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
   return (
     <NavStyled>
       <NavImg src={Pic} alt="" onClick={() => navigate("/home")} />
