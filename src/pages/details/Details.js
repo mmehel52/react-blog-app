@@ -3,14 +3,12 @@ import Blogdiv, { Bottom, Btn, BtnDiv, Image, Index } from "./DetailStyled";
 import { BsPersonCircle } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { useFetch, DeleteUser, UpdateUser } from "../../contexts/BlogContext";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useFetch, DeleteUser } from "../../contexts/BlogContext";
 import { AuthContext } from "../../contexts/AuthContext";
-import { update } from "firebase/database";
 
 const Details = () => {
   const navigate = useNavigate();
-  // const { id } = useParams();
   const { state: detail } = useLocation();
   const { currentUser } = useContext(AuthContext);
   const { blogList } = useFetch();
@@ -21,13 +19,9 @@ const Details = () => {
     DeleteUser(a);
     navigate("/");
   };
-  const Update = (a) => {
-    UpdateUser(a);
-    navigate("/newblog");
-  };
 
   return (
-    <div>
+    <div style={{ paddingBottom: "20px" }}>
       <h1 style={{ textAlign: "center" }}>---DETAİLS---</h1>
       <Blogdiv key={det?.id}>
         <Image src={det?.url} alt="" />
@@ -52,7 +46,7 @@ const Details = () => {
       {currentUser?.email === det?.email && (
         <BtnDiv>
           <Btn
-            onClick={() => Update(det?.id)}
+            onClick={() => navigate("/update/" + det?.id, { state: det })}
             style={{ backgroundColor: "#747A8C" }}
           >
             UPDATE

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import firebase from "../helpers/firebase";
 import {
   getDatabase,
@@ -47,9 +46,13 @@ export const DeleteUser = (id) => {
 
 export const UpdateUser = (det) => {
   const db = getDatabase(firebase);
-  const userRef = ref(db, "blog/");
+  const userRef = ref(db, "blog/" + det.id);
 
-  const updates = {};
+  const updates = {
+    title: det.title,
+    url: det.url,
+    content: det.content,
+  };
 
   updates["blog/" + det.id] = det;
 

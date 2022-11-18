@@ -20,7 +20,7 @@ export const NavbarLink = styled(Link)`
 export const NavbarLinkp = styled.p`
   color: ${({ theme }) => theme.colors.body};
   font-size: 15px;
-
+  margin-top: -1px;
   &:hover {
     color: ${({ theme }) => theme.colors.body};
     font-weight: bold;
@@ -44,10 +44,11 @@ export const MenuDiv = styled.div`
   position: absolute;
   display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
   flex-direction: column;
-  justify-content: space-around;
+  justify-items: space-between;
+  align-items: center;
   width: 60px;
   height: 90px;
-  gap: 5px;
+  gap: 2px;
   padding: 3px;
   transform: translate(-5%, 35px);
   overflow: hidden;
