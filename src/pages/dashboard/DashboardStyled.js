@@ -37,10 +37,9 @@ export const Index = styled.div`
   position: absolute;
   left: 0;
   top: 10rem;
-  width: 21rem;
+  width: 21.5rem;
   height: 8rem;
   background-color: #efeefe;
-  padding-left: 8px;
   font-size: 13px;
 `;
 export const Bottom = styled.div`

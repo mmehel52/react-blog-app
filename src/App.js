@@ -4,7 +4,6 @@ import Navbar from "./components/navbar/Navbar";
 import { ThemeProvider } from "styled-components";
 import AuthContextProvider from "./contexts/AuthContext";
 import { ToastContainer } from "react-toastify";
-import BlogContextProvider from "./contexts/BlogContext";
 const style = {
   colors: {
     header: "#747A8C",
@@ -19,13 +18,11 @@ function App() {
   return (
     <div className="App">
       <AuthContextProvider>
-        <BlogContextProvider>
-          <ThemeProvider theme={style}>
-            <Navbar />
-            <AppRouter />
-            <ToastContainer />
-          </ThemeProvider>
-        </BlogContextProvider>
+        <ThemeProvider theme={style}>
+          <Navbar />
+          <AppRouter />
+          <ToastContainer />
+        </ThemeProvider>
       </AuthContextProvider>
     </div>
   );

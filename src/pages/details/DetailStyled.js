@@ -1,57 +1,60 @@
 import styled from "styled-components";
 
-const DetailStyled = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  min-height: 90vh;
-  gap: 10px;
-  padding: 20px;
-`;
-
-export const Blogdiv = styled.div`
-  padding: 20px;
+const Blogdiv = styled.div`
   background-color: white;
   margin: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 19rem;
-  height: 22rem;
+  width: 80%;
   border-radius: 5px;
   box-shadow: 1px 1px 5px 0px grey;
-  position: relative;
 `;
+
 export const Image = styled.img`
-  width: 21.5rem;
-  height: 10rem;
-  position: absolute;
-  left: 0;
-  top: 0;
+  width: 100%;
+  min-height: 40vh;
 `;
 export const Index = styled.div`
-  position: absolute;
-  left: 0;
-  top: 10rem;
-  width: 21rem;
-  height: 8rem;
+  text-align: center;
+  width: 100%;
+  height: 20%;
   background-color: #efeefe;
-  padding-left: 8px;
+  /* padding-left: 5px; */
   font-size: 13px;
 `;
 export const Bottom = styled.div`
-  position: absolute;
-  left: 0;
-  top: 18rem;
-  width: 21.5rem;
+  width: 100%;
+  height: 20%;
   padding-left: 5px;
   font-size: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `;
+export const BtnDiv = styled.div`
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  flex-wrap: wrap;
+`;
+export const Btn = styled.button`
+  width: 10rem;
+  height: 3rem;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: red;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  &:hover {
+    cursor: pointer;
+  }
+`;
 
-export default DetailStyled;
+export default Blogdiv;

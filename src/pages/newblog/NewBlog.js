@@ -1,15 +1,4 @@
 import React, { useContext, useState } from "react";
-import firebase from "../../helpers/firebase";
-import {
-  getDatabase,
-  onValue,
-  push,
-  query,
-  ref,
-  remove,
-  set,
-  update,
-} from "firebase/database";
 import {
   toastSuccessNotify,
   toastErrorNotify,
@@ -18,6 +7,7 @@ import {
 import NewStyled, { Btn, Input, Input2, Signin } from "./NewStyled";
 import Pic from "../../assets/mm.png";
 import { AuthContext } from "../../contexts/AuthContext";
+import { AddUser } from "../../contexts/BlogContext";
 const initialState = {};
 const NewBlog = () => {
   const [blog, setBlog] = useState({
@@ -43,10 +33,7 @@ const NewBlog = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const db = getDatabase(firebase);
-    console.log(db);
-    const userRef = ref(db, "blog");
-    set(push(userRef), blog);
+    AddUser(blog);
     setBlog({ title: "", url: "", content: "" });
     toastSuccessNotify("Blog was added successfully!");
   };
