@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Blogdiv, { Bottom, Btn, BtnDiv, Image, Index } from "./DetailStyled";
 import { BsPersonCircle } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
@@ -8,6 +8,7 @@ import { useFetch, DeleteUser } from "../../contexts/BlogContext";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Details = () => {
+  const [count, setCount] = useState(0);
   const navigate = useNavigate();
   const { state: detail } = useLocation();
   const { currentUser } = useContext(AuthContext);
@@ -18,6 +19,9 @@ const Details = () => {
   const Delete = (a) => {
     DeleteUser(a);
     navigate("/");
+  };
+  const Heart = () => {
+    setCount(count + 1);
   };
 
   return (
@@ -37,8 +41,11 @@ const Details = () => {
             {det?.email}
           </p>
           <p>
-            <AiFillHeart style={{ marginRight: "10px", color: "red" }} />
-            0
+            <AiFillHeart
+              onClick={Heart}
+              style={{ marginRight: "10px", color: "red" }}
+            />
+            {count}
             <BiComment style={{ marginLeft: "10px", marginRight: "10px" }} />0
           </p>
         </Bottom>
