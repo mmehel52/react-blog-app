@@ -2,7 +2,7 @@
 [click here to see.](https://mm-fire-blog-app.netlify.app/)
 ## Demo
 
-![aaaaa]()
+![aaaaa](https://github.com/mmehel52/react-blog-app/blob/master/Animation.gif)
 
 ## Overview
 
