@@ -8,8 +8,10 @@ import NewStyled, { Btn, Input, Input2, Signin } from "./NewStyled";
 import Pic from "../../assets/mm.png";
 import { AuthContext } from "../../contexts/AuthContext";
 import { AddUser } from "../../contexts/BlogContext";
-const initialState = {};
+import { useNavigate } from "react-router-dom";
+
 const NewBlog = () => {
+  const navigate = useNavigate();
   const [blog, setBlog] = useState({
     title: "",
     url: "",
@@ -35,6 +37,7 @@ const NewBlog = () => {
     e.preventDefault();
     AddUser(blog);
     setBlog({ title: "", url: "", content: "" });
+    navigate("/");
     toastSuccessNotify("Blog was added successfully!");
   };
   return (
