@@ -43,8 +43,15 @@ const Dashboard = () => {
                 {blog?.email}
               </p>
               <p>
-                <AiFillHeart style={{ marginRight: "10px" }} />
-                0
+                {blog?.like > 0 && (
+                  <AiFillHeart style={{ marginRight: "10px", color: "red" }} />
+                )}
+                {blog?.like === 0 && (
+                  <AiFillHeart
+                    style={{ marginRight: "10px", color: "black" }}
+                  />
+                )}
+                {blog?.like}
                 <BiComment
                   style={{ marginLeft: "10px", marginRight: "10px" }}
                 />

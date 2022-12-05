@@ -4,24 +4,30 @@ import { BsPersonCircle } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 import { BiComment } from "react-icons/bi";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useFetch, DeleteUser } from "../../contexts/BlogContext";
+import { useFetch, DeleteUser, UpdateUser } from "../../contexts/BlogContext";
 import { AuthContext } from "../../contexts/AuthContext";
 
 const Details = () => {
-  const [count, setCount] = useState(0);
   const navigate = useNavigate();
   const { state: detail } = useLocation();
   const { currentUser } = useContext(AuthContext);
   const { blogList } = useFetch();
-  // console.log(detail.id);
-  const aaa = blogList.filter((blog, id) => blog.id == detail.id);
+  console.log(detail);
+
+  const aaa = blogList.filter((blog, id) => blog.id === detail.id);
   const det = aaa[0];
+  console.log(det);
+  const [updatedBlog, setUpdatedBlog] = useState({ ...det });
   const Delete = (a) => {
     DeleteUser(a);
     navigate("/");
   };
-  const Heart = () => {
-    setCount(count + 1);
+
+  const LikeHandle = () => {
+    let counter = det.like;
+    counter++;
+    setUpdatedBlog({ ...det, like: counter });
+    UpdateUser(updatedBlog);
   };
 
   return (
@@ -41,11 +47,19 @@ const Details = () => {
             {det?.email}
           </p>
           <p>
-            <AiFillHeart
-              onClick={Heart}
-              style={{ marginRight: "10px", color: "red" }}
-            />
-            {count}
+            {det?.like > 0 && (
+              <AiFillHeart
+                style={{ marginRight: "10px", color: "red" }}
+                onClick={LikeHandle}
+              />
+            )}
+            {det?.like === 0 && (
+              <AiFillHeart
+                style={{ marginRight: "10px", color: "black" }}
+                onClick={LikeHandle}
+              />
+            )}
+            {det?.like}
             <BiComment style={{ marginLeft: "10px", marginRight: "10px" }} />0
           </p>
         </Bottom>

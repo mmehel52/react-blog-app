@@ -1,9 +1,5 @@
 import React, { useContext, useState } from "react";
-import {
-  toastSuccessNotify,
-  toastErrorNotify,
-  toastWarnNotify,
-} from "../../helpers/toastNotify";
+import { toastSuccessNotify } from "../../helpers/toastNotify";
 import NewStyled, { Btn, Input, Input2, Signin } from "./NewStyled";
 import Pic from "../../assets/mm.png";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -18,6 +14,7 @@ const NewBlog = () => {
     content: "",
     date: "",
     email: "",
+    like: 0,
   });
   const { currentUser } = useContext(AuthContext);
   const handleChange = (e) => {
@@ -43,7 +40,7 @@ const NewBlog = () => {
   return (
     <NewStyled>
       <Signin>
-        <img src={Pic} width="100" />
+        <img src={Pic} width="100" alt="pic" />
         <h1>--New Blog--</h1>
         <form onSubmit={handleSubmit}>
           <Input
